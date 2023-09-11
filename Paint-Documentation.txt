@@ -1,0 +1,71 @@
+***********************************************************************************************
+                                PAINT-APPLICATION-DOCUMENTATION
+***********************************************************************************************
+
+This is simple paint application made in java through graphical user interface
+in this application You can draw anything on canvas like draw rectangle, square ,line 
+And with the help of eraser you can erase them which you have draw on canvas 
+
+First have class MyDrawingPad in which i have been set background color and foreground color 
+which the help of foreground color we can easily remove drawing which we have have draw previsouly
+this all have return in MyDrawingPad contructor 
+
+After that we want to store all circle rectangle and drawline shapes which we can store in ArrayList
+Now i Have assign value means in circleStartingPoint and circleEndPoint in that area we can easily draw circle
+Like that i take for Rectangle also as same 
+
+Now with the help of mousePressed java class we set circleStartingPoint and circleEndPoint with the help
+of MouseEvent we can getX() and getY() 
+
+Now with the help of mouseRealesed take variable radius we can draw circle
+Like that only Now in case of rectangle we take two variable width and height
+after that in mousePressed we getX() and getY() we will substract rectangleStartingPoint and 
+rectangleEndPoint 
+
+Now using mouseDragged Method now using drawOval and pass circleStartingPoint and circleEndPoint
+So easily we cann draw circle and like that only we can do with rectangle drawRect in case of we have to 
+pass width and height to draw it 
+
+Now we have to store all shapes in ArrayList so we can save them to do that we make three class circle
+and rectangle and drawline in drawline case we can take List<Point> points and through for loop
+help we can take all points like which it have starts to draw until the points.size() we wll do i++
+through g.drawline( we can store it x and y poitns)
+
+Like this in circle case but in circle we will use drawOval to draw and  Rectangle case use drawRect
+
+If user want to remove drawing we will take flag variable isEraserActive is in we set its property 
+to foreground and set g.setColor(isEraserActive ? getBackground() : firstColor) with the help of this 
+it get background and For more information you can see myCode for better understanding
+
+
+Now make class Drawing which we will extends JFrame 
+First make MyDrawingPad object 
+Now make buttons like pencil and so on put all things in JPanel
+Like that only make some color buttons put them also in JPanel use images java colors to  set buttons color
+                        Example button.setColor(Color.RED);
+
+After that implement actionListener now which you have made object of MyDrawingPad 
+Now class MyDrawingPad we make setFirstColor and getFirstColor with the help of that
+now pd.setFirstColor(Color.RED) for red button and like that for different button
+now add All things in container and adjust its size according to your respectivley
+
+Now if user take near the button than it show the name for this use ButtonToolTipMouseListener which will extends MouseAdapter
+                        Example pencilButton.addMouseListener(new ButtonTooltipMouseListener("pencil"));
+
+
+For setting eraser button usse pd.setEraser(); in actionListener
+for using colorGrading in which user  can adjust its color according to it use JColorChooser
+
+Main important for anny application to save it i am using JFileChooser
+we will take BufferedImage to getWidth and getHeight and use Graphics2D to create imgeGraphics
+now using Graphics2D setBackgroundColor and Now we store all circle and rectangle in ArrayList get 
+it through loop and using Graphics2D draw( all the shapes )
+
+After give JOptionPane if use print drawingSaved
+If not than print not saved
+
+
+***************************************************************************************************
+        If there any problem you will face above implemention see my code of paint-application 
+***************************************************************************************************
+**************************************   Best of Luck   *******************************************

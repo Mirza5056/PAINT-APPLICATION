@@ -1,0 +1,105 @@
+                               Paint Application Documentation
+      Introduction
+This Java code implements a simple paint application using a Graphical User Interface (GUI). The application allows users to draw shapes, including freehand lines, rectangles, and circles. Additionally, it supports erasing and changing colors.
+
+Classes
+1.  MyDrawingPad
+
+  Attributes
+- lastX, lastY:  Store the last coordinates of the mouse pointer.
+- startX, startY, endX, endY:  Store the start and end coordinates for shapes.
+- circleStartX, circleStartY:  Store the starting coordinates for drawing circles.
+- rectangleStartX, rectangleStartY:  Store the starting coordinates for drawing rectangles.
+- points:  List to hold points for freehand drawing.
+- isEraserActive:  Flag indicating whether the eraser is selected.
+- pencilCursor, circleCursor, rectangleCursor, eraserCursor:  Cursors for different drawing modes.
+- firstColor:  The current drawing color (default is black).
+- drawCircle, drawRectangle:  Flags indicating active shape drawing modes.
+- shapes, rectangles, circles, lines:   Lists to store drawn shapes.
+
+  Methods
+- public void paint(Graphics g):  Override method to paint the shapes on the canvas.
+- public List<Shape> getShapes():  Returns a list of all shapes drawn.
+- public List<Point> getPoints():  Returns a list of points for freehand drawing.
+- public void setFirstColor(Color color):  Sets the drawing color.
+- public Color getFirstColor():  Returns the current drawing color.
+- Other methods handle drawing circles, rectangles, and freehand lines.
+
+2. MyDrawingPad.Shape (Interface)
+
+  Methods
+- void draw(Graphics g):  Interface method to draw shapes.
+
+3. MyDrawingPad.DrawLine (Inner Class)
+
+  Attributes
+- points:  List of points for the freehand line.
+Methods
+-  public void draw(Graphics g):  Draws a freehand line.
+
+4. MyDrawingPad.Circle (Inner Class)
+
+  Attributes
+- centerX, centerY, radius:  Coordinates and radius for drawing a circle.
+
+   Methods
+-  public void draw(Graphics g) : Draws a circle.
+
+5. MyDrawingPad.Rectangle (Inner Class)
+
+  Attributes
+- x, y, width, height:  Coordinates and dimensions for drawing a rectangle.
+
+  Methods
+- public void draw(Graphics g):  Draws a rectangle.
+
+6. CutPage (Inner Class)
+
+  Methods
+- Constructor sets the background color.
+
+7. Drawing
+  Attributes
+- pd:  Instance of MyDrawingPad for drawing.
+- button:  JButton for user interaction.
+- container:  Container for GUI components.
+- currentColor:  Current color selected.
+- jsp:  JScrollPane for the drawing pad.
+- cardLayout, cardPanel:  Layout and panel for card-based UI (not utilized).
+- t:  Timer to display current time.
+- startX, startY, endX, endY:  Coordinates for drawing.
+- drawing:  Flag indicating if drawing is in progress.
+
+  Methods
+- private void clearDrawing():  Clears the drawn freehand lines.
+- private void clearCircle():  Clears the drawn circles.
+- private void saveDrawing():  Saves the drawing as a PNG file.
+- private class ButtonTooltipMouseListener:  Inner class for handling button tooltips.
+- Constructor creates the GUI components, sets their properties, and adds listeners.
+
+8. psp2 (Main Class)
+
+  Methods
+- public static void main(String[] gg):  Entry point of the application.
+
+   Usage
+1. Run the psp2 class to start the paint application.
+2. The main window displays the drawing pad and a toolbar with various drawing options.
+3. Select the desired drawing tool (pencil, eraser, square, circle, etc.) by clicking the corresponding button.
+4. Choose a color from the color panel or use the default black color.
+5. Draw on the canvas using the selected tool.
+6. Click the "Save" button to save the drawing as a PNG file.
+
+  Note
+- The application supports freehand drawing, rectangles, and circles.
+- The eraser tool allows for selective removal of drawings.
+- Colors can be changed using the color panel or the default black color.
+
+
+                                     Acknowledgements
+
+                                  Made By Kamran Akthar.
+
+
+                                        Conclusion
+This Java application provides a simple yet functional paint program with various drawing tools and color options. Users can create drawings, save them as PNG files, and manipulate them using the provided features. The application is intuitive and user-friendly.
